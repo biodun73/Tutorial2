@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .container{
+           position: relative;
+           width: 800px;
+           height: 500px;
+           margin: 0 auto;
+       }
+       .newglass{
+           position: absolute;
+           width: 100px;
+           height: 100px;
+           border-radius: 50%;
+           border: 2px solid black;
+       }
+       h1{
+           margin-left:300px;
+       }
+    </style>
+</head>
+<body>
+    <h1>Image Magnifier Glass</h1>
+<!--create div-->
+<div class="container">
+    <img src="CITYPICS/map.jpg" alt="london" id="city" width="800" height="500">
+</div>
+  <!--javascript-->
+  <script>
+      //create fuction called zoomimage
+      function zoomImage(zoom){
+       //create image variable position
+       var img = document.getElementById('city');
+       ////create new class selector
+       var glass = document.createElement('div');
+       //add the selector to the class
+       glass.setAttribute("class","newglass");
+       //insert the selector to the parent
+       img.parentElement.insertBefore(glass,img);
+       //set the backgroundimage
+       glass.style.backgroundImage="url('"+img.src+"')";
+       //set background repeat to no repeat
+       glass.style.backgroundRepeat="no-repeat";
+       //set the background size
+       glass.style.backgroundSize=(img.width*zoom)+ "px" + (img.height*zoom)+ "px";
+       glass.addEventListener("mousemove",glassPosition);
+       img.addEventListener("mousemove",glassPosition);
+
+      // create function for cursor position
+      function cursorPosition(event){
+        var x=0,y=0,p;
+        p = img.getBoundingClientRect();
+        event = event || window.event;
+        x = event.pageX - p.left;
+        y = event.pageY - p.top;
+        return{x , y};
+      }
+
+      //create another function called glassposition
+      function glassPosition(event){
+       var widthGlass;
+       var heightGlass;
+       var pos;
+       var x,y;
+       //prevent the glass for any obstacle
+       event.preventDefault();
+       pos =cursorPosition(event);
+       widthGlass = glass.offsetWidth/2;
+       heightGlass = glass.offsetHeight/2;
+       x = pos.x;
+       y = pos.y;
+       //use if statement in other to prevent the glass to move beyond the image
+       if(x > img.width-(widthGlass/zoom)){
+           x=img.width-(widthGlass/zoom);
+       } 
+       if(x<widthGlass/zoom){
+           x=widthGlass/zoom;
+       }
+       if(y > img.height-(heightGlass/zoom)){
+           y=img.height-(heightGlass/zoom);
+       } 
+       if(y<heightGlass/zoom){
+        y=heightGlass/zoom;
+       }
+       //set the position of the glass
+       glass.style.left = (x-widthGlass) + "px";
+       glass.style.top = (y-heightGlass) + "px";
+       //display the glass
+       glass.style.backgroundPosition = "-" + ((x*zoom)- widthGlass ) + "px  -" + ((y*zoom) - heightGlass ) + "px";
+      }
+    }
+    zoomImage(6);
+  </script>
+</body>
+</html>

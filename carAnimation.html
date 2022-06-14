@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car animation</title>
+    <style>
+    /*container in relative*/
+    .container{
+        position:relative;
+        width:600%;
+        height:500px;
+    }
+    /*city-highway in absolute*/
+    .city-highway{
+        position:absolute;
+        background-repeat:repeat-x;
+        animation: city 3s linear infinite;
+    }
+    /*car position in absolute*/
+    .car{
+        position: absolute;
+        bottom: 5px;
+        z-index: 1;
+        animation: car 1s linear infinite;
+    }
+    /*the 2 tyre in absolute position*/
+    .tyre{
+        position: absolute;
+        bottom: 25px;
+    }
+    /*back tyre in absolute position*/
+    .back{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 83px;
+        z-index: 1;
+        animation: back-tyre 0.01s linear infinite;
+    }
+     /*back tyre in absolute position*/
+     .front{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 405px;
+        z-index: 1;
+        animation: back-tyre 0.01s linear infinite;
+    }
+    /*make the city highway move in opposite direction*/
+    @keyframes city{
+        100%{
+            transform: translate(-2500px);
+        }
+    }
+    /*make the car move slowly up and down*/
+    @keyframes car{
+        0%{transform: translateY(-1px);}
+        50%{transform: translateY(1px);}
+       100%{transform: translateY(-1px);}
+    }
+ /*spin the back  and front tyre in 360 degree*/
+ @keyframes back-tyre{
+     100%{transform: rotate(360deg);}
+ }
+    </style>
+</head>
+<body>
+    <!--container-->
+    <div class="container">
+        <!--background image-->
+        <div class="city-highway">
+            <img src="CITYPICS/road-street.jpg" alt="Highway" style="width:600%; height: 700px;">
+        </div>
+        <!--car image-->
+        <div class="car">
+            <img src="CITYPICS/car.png" alt="Car">
+        </div>
+        <!--front tyre-->
+        <div class="front tyre">
+            <img src="CITYPICS/wheel.png" alt="Front-tyre">
+        </div>
+        <!--back tyre-->
+        <div class="back tyre">
+            <img src="CITYPICS/wheel.png" alt="Back-tyre">
+        </div>
+    </div>
+</body>
+</html>

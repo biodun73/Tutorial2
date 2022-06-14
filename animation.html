@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <link rel="stylesheet" href="../YOUTUBE/COLOR/animationColor.css">
+</head>
+<body>
+    <div class="container">
+              <img src="../YOUTUBE/SPRITE_RIGHT/right.png" alt="" id="image">
+              
+    </div>
+    <button id="button" onclick="spriteMove()" >Right </button>
+
+    <script>
+        var move = 0;
+        var walkRight = 1;
+      
+        var sp = document.getElementById('image');
+        function spriteMove(){
+            move+=15;
+            if(walkRight>9){
+                walkRight=1;
+            }
+            
+            sp.style.left=move+"px";
+            sp.src="../YOUTUBE/SPRITE_RIGHT/right"+walkRight+".png";
+            walkRight+=15;
+           setTimeout(spriteMove,200);
+          
+    }
+   
+
+
+ 
+  
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical tab</title>
+  <!--style-->
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    body{
+      background-color: darkcyan;
+    }
+    .header{
+      width: 100%;
+      height: 200px;
+      background-color: black;
+      overflow: hidden;
+    }
+    .header h1{
+      text-align: center;
+      padding: 50px;
+      color: white;
+    }
+    .tab{
+      float: left;
+      width: 20%;
+      height: 400px;
+      margin-top: 20px;
+      border: 2px solid black;
+      background-color: darkgray;
+    }
+    .tab button{
+      display: block;
+      width: 100%;
+      border: none;
+      color: black;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      outline: none;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+      background-color: inherit;
+
+    }
+    .video{
+      float: left;
+      padding: 5px;
+      margin-top: 20px;
+      border: 2px solid black;
+      border-left: none;
+      height: 400px;
+    }
+    .tab button:hover{
+      background-color: lavender;
+    }
+    .tab button.active{
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+  <!--Heading-->
+  <div class="header">
+    <h1>VERTICAL TAB</h1>
+  </div>
+  <!--some buttons-->
+  <div class="tab">
+    <button class="tablinks" onclick="openButton(event,'video1')" id="defaultButton">Video1</button> <!--default button-->
+    <button class="tablinks"  onclick="openButton(event,'video2')">Video2</button> 
+    <button class="tablinks"  onclick="openButton(event,'video3')">Video3</button> 
+    <button class="tablinks"  onclick="openButton(event,'video4')">Video4</button> 
+  </div>
+  <!--some videos-->
+  <div id="video1" class="video">
+    <video src="CITYPICS/videos/Boxing.mp4" width="700" controls></video>
+  </div>
+  <div id="video2" class="video">
+    <video src="CITYPICS/videos/Harmony.mp4" width="700" controls></video>
+  </div>
+  <div id="video3" class="video">
+    <video src="CITYPICS/videos/video.mp4" width="700" controls></video>
+  </div>
+  <div id="video4" class="video">
+    <video src="CITYPICS/videos/video1.mp4" width="700" controls></video>
+  </div>
+
+  <!--javascript codes-->
+  <script>
+    function openButton(ev,video){
+      var i, tablink,tabvideo;
+      tabvideo = document.getElementsByClassName('video');
+      for(i = 0; i < tabvideo.length; i++){
+        tabvideo[i].style.display = 'none';
+      }
+      tablink = document.getElementsByClassName('tablinks');
+      for(i = 0; i < tablink.length; i++){
+        tablink[i].className = tablink[i].className.replace(' active', '');
+      }
+      document.getElementById(video).style.display='block';
+      ev.currentTarget.className += ' active';
+    }
+    document.getElementById('defaultButton').click();
+  </script>
+</body>
+</html>

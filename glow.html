@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Text</title>
+    <!--style-->
+    <style>
+    /*background color of the page*/
+    body{
+        background-color:black;
+    }
+    /* move the title to the center*/
+    /*change the color of the title to white*/
+    h1{
+        text-align: center;
+        color: white;
+    }
+    /*style the glow text*/
+    .glow{
+        font-size :60px;
+        color:white;
+        margin-top: 100px;
+        text-align:center;
+        animation:glow 1s ease-in-out infinite alternate;
+    }
+    /*glow the text */
+    @keyframes glow{
+        from{
+            color: yellow;
+            text-shadow: 0 0 100px red, 0 10px 80px red, 0 5px 50px red;
+        }
+        to{
+            text-shadow: 0 0 5px red;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!--Title-->
+    <h1>GLOW TEXT</h1>
+    <div class="glow">
+          <!--Glow text-->
+          <h1>HAPPY CODING</h1>
+    </div>
+</body>
+</html>

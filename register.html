@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+        body{
+            background-image: linear-gradient(to right,red,blue,yellow,green);
+        }
+        .register{
+            max-width: 370px;
+            height: 200px;
+            background-color: lightyellow;
+            border-radius: 5px;
+            margin-top: 250px;
+            margin-left: 340px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!--div-->
+    <div class="register">
+        <!--form-->
+        <form action="POST">
+            <!--table-->
+            <table>
+                <tr>
+                    <th>Firstname</th>
+                    <th><input type="text" name="first"></th>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <th><input type="text" name="last"></th>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <th><input type="password" name="pass"></th>
+                </tr>
+                <tr>
+                    <th>Confirm Password</th>
+                    <th><input type="password" name="cpass"></th>
+                </tr>
+                <tr>
+                    <th>Email Address</th>
+                    <th><input type="text" name="email"></th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><input type="Submit" name="submit" value="Register"></th>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

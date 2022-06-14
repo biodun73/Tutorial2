@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text animation</title>
+    <!--style-->
+    <style>
+        /*background color*/
+        body{
+            overflow: hidden;
+            animation:  body 2s ease-in-out infinite alternate;
+            background-image: radial-gradient(circle,red,blue,green);
+        }
+        /*style p*/
+        p{
+            text-align: center;
+            font-size: 90px;
+            color: black;
+            font-weight: bold;
+            animation:  read 10s linear infinite;
+        }
+        /*style animation*/
+        @keyframes read{
+            from{
+                transform: translateY(-200%);
+            }
+            to{
+                transform: translateY(500%);
+            }
+        }
+        /*style animation*/
+        @keyframes body{
+            from{
+                background-image: radial-gradient(circle,yellow,brown,blue);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--div-->
+    <div class="read">
+          <!--text-->
+          <p>Cascading Style Sheets</p>
+    </div>
+</body>
+</html>

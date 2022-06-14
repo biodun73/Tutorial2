@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>images in array</title>
+    <style>
+        #container{
+            position: relative;
+        }
+        .cell{
+            position: absolute;
+            width: 270px;
+            height: 270px;
+        }
+    </style>
+</head>
+<body>
+    <!--div-->
+    <div id="container">
+
+    </div>
+    <!--javascript-->
+    <script>
+        //create array number
+        var num =
+         [
+           [0,1,2,3,4],
+           [1,2,3,4,0],
+           [2,3,4,0,1]
+        ];
+        //size of the images
+        var SIZE = 270;
+        //marging between the images
+        var EXT = 4;
+
+        //replace each image by creating variable
+       var a = 0;
+       var b = 1;
+       var c = 2;
+       var d = 3;
+       var e = 4;
+
+       //create variable for image location
+       var pos = document.querySelector('#container');
+       //get the number of images in row
+       var ROW = num.length;
+
+       //get the number of images in coloum
+
+       var COLOUM = num[0].length;
+
+       //create for loop in row
+       for(var row = 0; row < ROW; row++){
+           //creat for loop in coloum
+           for(var coloum = 0; coloum<COLOUM; coloum++){
+               var imaPos = document.createElement('img');
+               //set the attribute
+                imaPos.setAttribute('class','cell');
+                
+                //add the child element to the parent
+                pos.appendChild(imaPos);
+                //position the images
+                switch (num[row][coloum]) {
+                    case a:
+                        imaPos.src='download1.jpg';
+                        break;
+                    case b:
+                        imaPos.src='download2.jpg';
+                        break;
+                     case c:
+                        imaPos.src='download3.jpg';
+                        break;
+                    case d:
+                        imaPos.src='download4.jpg';
+                        break;
+                    case e:
+                        imaPos.src='download5.jpg';
+                        break;
+                    default:
+                        break;
+                }
+             // console.log(Pos);
+             imaPos.style.top = row*(SIZE + EXT) + 'px';
+             imaPos.style.left = coloum*(SIZE + EXT) + 'px';
+           }
+       }
+    </script>
+</body>
+</html>

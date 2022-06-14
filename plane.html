@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airplane animation</title>
+    <style>
+    /*container in relative position*/
+    .container{
+        position:relative;
+        width:800%;
+        height:500px;
+    }
+    /*sky in absolute position*/
+    .sky{
+        position: absolute;
+        background-repeat: repeat-x;
+        animation: sky 1s linear infinite;
+    }
+    /*airplane in absolute position*/
+    .airplane{
+        position: absolute;
+        left: 50px;
+        bottom: 30px;
+        z-index: 1;
+        animation: airplane 3s linear infinite;
+    }
+    /*move the plane forward*/
+    @keyframes airplane{
+        0%{transform: translate(200px);}
+        50%{transform: translate(200px);}
+        100%{transform: translate(200px);}
+    }
+    /*move the sky cloud in opposite direction*/
+    @keyframes sky{
+        100%{
+            transform: translate(-3500px);
+        }
+    }
+    </style>
+</head>
+<body>
+    <!--container-->
+    <div class="container">
+    <!--background image-->
+    <div class="sky">
+      <img src="CITYPICS/sky.jpg" alt="Sky" style="width: 800%; height: 700px;">
+    </div>
+    <!--airplane image-->
+    <div class="airplane">
+         <img src="CITYPICS/A340.png" alt="Airplane">
+    </div>
+    </div>
+</body>
+</html>

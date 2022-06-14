@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body{
+            background-color:black
+        }
+            .row{
+            position: fixed;
+            width: 100%;
+            height: 150px;
+         }
+        .op{
+            margin-top: 10px;
+            float: left;
+            width: 23%;
+            margin-left: 17px;
+        }
+        .hid{
+            margin-top: 60px;
+            position: relative;
+            display: none;
+            padding:50px;
+            background-color: black;
+        }
+        .close{
+            position: absolute;
+            top: 5px;
+            right:15px;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+ <div class="row">
+    <div class="op">
+        <img src="NATURE/nature1.jpg" alt=""  onclick="openImage(this)" style="width: 100%; height: 150px;">
+    </div>
+    <div class="op">
+        <img src="NATURE/nature2.jpg" alt="" onclick="openImage(this)" style="width: 100%; height: 150px;">
+    </div>
+    <div class="op">
+        <img src="NATURE/nature3.jpg" alt="" onclick="openImage(this)"style="width: 100%; height: 150px;">
+    </div>
+    <div class="op">
+        <img src="NATURE/nature4.jpg" alt="" onclick="openImage(this)" style="width: 100%; height: 150px;">
+    </div>
+ </div>
+    <div class="hid">
+        <span class="close" onclick="this.parentElement.style.display='none'">&times;</span>
+        <img  id="show" width="100%" height="500">
+    </div>
+    
+<script>
+    function openImage(im){
+        var imag =document.getElementById('show');
+        imag.src=im.src; 
+        imag.parentElement.style.display='block';
+    }
+
+</script>
+</body>
+</html>
